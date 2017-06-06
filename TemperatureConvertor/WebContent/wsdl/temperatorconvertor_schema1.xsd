@@ -1,0 +1,35 @@
+<xs:schema xmlns:tns="http://webServices/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://webServices/" version="1.0">
+
+  <xs:element name="toCelsius" type="tns:toCelsius"/>
+
+  <xs:element name="toCelsiusResponse" type="tns:toCelsiusResponse"/>
+
+  <xs:element name="tofarhenheit" type="tns:tofarhenheit"/>
+
+  <xs:element name="tofarhenheitResponse" type="tns:tofarhenheitResponse"/>
+
+  <xs:complexType name="tofarhenheit">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tofarhenheitResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="toCelsius">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="toCelsiusResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

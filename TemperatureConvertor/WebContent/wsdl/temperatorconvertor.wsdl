@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TemperatorConvertorService" targetNamespace="http://webServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webServices/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://webServices/" schemaLocation="temperatorconvertor_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="tofarhenheit">
+    <wsdl:part name="parameters" element="tns:tofarhenheit">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="toCelsius">
+    <wsdl:part name="parameters" element="tns:toCelsius">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="toCelsiusResponse">
+    <wsdl:part name="parameters" element="tns:toCelsiusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tofarhenheitResponse">
+    <wsdl:part name="parameters" element="tns:tofarhenheitResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TemperatorConvertor">
+    <wsdl:operation name="tofarhenheit">
+      <wsdl:input name="tofarhenheit" message="tns:tofarhenheit">
+    </wsdl:input>
+      <wsdl:output name="tofarhenheitResponse" message="tns:tofarhenheitResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toCelsius">
+      <wsdl:input name="toCelsius" message="tns:toCelsius">
+    </wsdl:input>
+      <wsdl:output name="toCelsiusResponse" message="tns:toCelsiusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TemperatorConvertorServiceSoapBinding" type="tns:TemperatorConvertor">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="tofarhenheit">
+      <soap:operation soapAction="urn:Tofarhenheit" style="document"/>
+      <wsdl:input name="tofarhenheit">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tofarhenheitResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toCelsius">
+      <soap:operation soapAction="urn:ToCelsius" style="document"/>
+      <wsdl:input name="toCelsius">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="toCelsiusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TemperatorConvertorService">
+    <wsdl:port name="TemperatorConvertorPort" binding="tns:TemperatorConvertorServiceSoapBinding">
+      <soap:address location="http://localhost:9090/TemperatorConvertorPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
